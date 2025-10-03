@@ -1,0 +1,3 @@
+/home/mason/repos/NotReallyPhysics/build/CMakeFiles/NotReallyPhysics.dir
+/home/mason/repos/NotReallyPhysics/build/CMakeFiles/edit_cache.dir
+/home/mason/repos/NotReallyPhysics/build/CMakeFiles/rebuild_cache.dir

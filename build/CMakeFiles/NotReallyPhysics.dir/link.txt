@@ -1,0 +1,1 @@
+/usr/sbin/c++ -Wl,--dependency-file=CMakeFiles/NotReallyPhysics.dir/link.d CMakeFiles/NotReallyPhysics.dir/main.cpp.o -o NotReallyPhysics
