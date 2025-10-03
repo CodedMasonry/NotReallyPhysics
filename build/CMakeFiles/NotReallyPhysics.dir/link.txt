@@ -1,1 +1,1 @@
-/usr/sbin/c++ -Wl,--dependency-file=CMakeFiles/NotReallyPhysics.dir/link.d CMakeFiles/NotReallyPhysics.dir/main.cpp.o -o NotReallyPhysics
+/usr/sbin/c++ -Wl,--dependency-file=CMakeFiles/NotReallyPhysics.dir/link.d CMakeFiles/NotReallyPhysics.dir/main.cpp.o -o NotReallyPhysics  /usr/lib/libSDL3.so.0.2.24
