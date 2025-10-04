@@ -96,7 +96,7 @@ NotReallyPhysics_EXTERNAL_OBJECTS =
 NotReallyPhysics: CMakeFiles/NotReallyPhysics.dir/main.cpp.o
 NotReallyPhysics: CMakeFiles/NotReallyPhysics.dir/build.make
 NotReallyPhysics: CMakeFiles/NotReallyPhysics.dir/compiler_depend.ts
-NotReallyPhysics: /usr/lib/libSDL3.so.0.2.24
+NotReallyPhysics: /usr/lib/libSDL3.so.0.2.22
 NotReallyPhysics: CMakeFiles/NotReallyPhysics.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/mason/repos/NotReallyPhysics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable NotReallyPhysics"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/NotReallyPhysics.dir/link.txt --verbose=$(VERBOSE)

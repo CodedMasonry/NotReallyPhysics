@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "/home/mason/repos/NotReallyPhysics/CMakeLists.txt"
-  "CMakeFiles/4.1.2/CMakeCXXCompiler.cmake"
-  "CMakeFiles/4.1.2/CMakeSystem.cmake"
+  "CMakeFiles/4.1.1/CMakeCXXCompiler.cmake"
+  "CMakeFiles/4.1.1/CMakeSystem.cmake"
   "/usr/lib/cmake/SDL3/SDL3Config.cmake"
   "/usr/lib/cmake/SDL3/SDL3ConfigVersion.cmake"
   "/usr/lib/cmake/SDL3/SDL3headersTargets.cmake"
