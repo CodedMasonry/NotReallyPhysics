@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/mason/repos/NotReallyPhysics/build/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
