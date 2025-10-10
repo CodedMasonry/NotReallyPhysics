@@ -1,8 +1,8 @@
 #include <SDL3/SDL_init.h>
 #include <SDL3/SDL_log.h>
+#include <SDL3/SDL_rect.h>
 #include <SDL3/SDL_render.h>
 #include <SDL3/SDL_video.h>
-#include <cmath>
 #include <cstddef>
 #define SDL_MAIN_USE_CALLBACKS 1
 #include "SDL3/SDL_main.h"
@@ -17,24 +17,24 @@ static int window_width, window_height;
 
 // Render the background
 void RenderBackground() {
-  SDL_SetRenderDrawColor(renderer, 200, 200, 200, SDL_ALPHA_OPAQUE);
+  // Divide screen into segments 32 pixels wide, and we only want every other to
+  // be a secondary color
+  int rect_width = 128;
+  int num_rects = (window_width / rect_width / 2) + 1;
+  SDL_FRect rects[num_rects];
 
-  // Render wall lines
-  int wall_horizontal_lines = std::round(window_height / 16) + 1;
-  int wall_vertical_lines = std::round(window_width / 16) + 1;
-  int wall_horizontal_spacing = window_height / (wall_horizontal_lines - 1);
-  int wall_vertical_spacing = window_width / (wall_vertical_lines - 1);
-  int h_offset = 0;
-  int v_offset = 0;
+  int offset = 0;
+  for (int i = 0; i < num_rects; i++) {
+    rects[i].x = offset;
+    rects[i].y = 0;
+    rects[i].w = rect_width;
+    rects[i].h = window_height;
 
-  for (int i = 0; i < wall_horizontal_lines; i++) {
-    SDL_RenderLine(renderer, 0, h_offset, window_width, h_offset);
-    h_offset += wall_horizontal_spacing;
+    offset += (rect_width * 2);
   }
-  for (int i = 0; i < wall_vertical_lines; i++) {
-    SDL_RenderLine(renderer, v_offset, 0, v_offset, window_height);
-    v_offset += wall_vertical_spacing;
-  }
+
+  SDL_SetRenderDrawColor(renderer, 50, 50, 50, SDL_ALPHA_OPAQUE);
+  SDL_RenderFillRects(renderer, rects, num_rects);
 }
 
 /*
@@ -69,7 +69,8 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]) {
 
   // Create window & Renderer
   if (!SDL_CreateWindowAndRenderer("Not Really Physics", window_width,
-                                   window_height, 0, &window, &renderer)) {
+                                   window_height, SDL_WINDOW_RESIZABLE, &window,
+                                   &renderer)) {
     SDL_Log("Couldn't create window/renderer: %s", SDL_GetError());
     return SDL_APP_FAILURE;
   }
@@ -89,8 +90,11 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event) {
 // Render frame
 SDL_AppResult SDL_AppIterate(void *appstate) {
   // Clear screen
-  SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+  SDL_SetRenderDrawColor(renderer, 40, 40, 40, SDL_ALPHA_OPAQUE);
   SDL_RenderClear(renderer);
+
+  // Update window dimensions in case they changed
+  SDL_GetWindowSizeInPixels(window, &window_width, &window_height);
 
   RenderBackground();
 
